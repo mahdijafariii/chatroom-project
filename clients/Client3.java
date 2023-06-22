@@ -14,7 +14,7 @@ public class Client3 {
         String test = "";
         do{
             test = in.nextLine();
-            printWriter.println(test);
+            printWriter.println("Client 3: "+test);
         }while (!test.equals("END"));
         System.out.println("Disconnected!!");
         printWriter.close();

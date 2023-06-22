@@ -14,6 +14,7 @@ public class Server {
             Socket clientSocket = socket.accept();
             System.out.println("Server accept new client !! ");
             CommunicationHandler communicationHandler = new CommunicationHandler(clientSocket);
+            communicationHandler.start();
         }
 
 
@@ -31,7 +32,16 @@ class CommunicationHandler extends Thread{
     @Override
     public void run() {
         try {
-
+            InputStreamReader inputStream = new InputStreamReader(socket.getInputStream());
+            BufferedReader bufferedInputStream = new BufferedReader(inputStream);
+            String massage=" ";
+            do{
+                massage = bufferedInputStream.readLine();
+                if(massage!=null){
+                    System.out.println(massage);
+                }
+            }
+            while (massage!=null);
 
         }
         catch (Exception e){
